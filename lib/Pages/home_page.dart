@@ -6,13 +6,27 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          color: Colors.red,
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage("assets/images/moon.png"),
-          ),
+      body: _pageTitle(),
+    );
+  }
+
+  Widget _pageTitle() {
+    return const Text(
+      "GO MOON ",
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 70,
+        fontWeight: FontWeight.w700,
+      ),
+    );
+  }
+
+  Widget _astroImageWidget() {
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.contain,
+          image: AssetImage("assets/images/moon.png"),
         ),
       ),
     );
