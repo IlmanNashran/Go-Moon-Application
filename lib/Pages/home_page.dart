@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:go_moon/Pages/widgets/custom_dropdown_button.dart";
 
 class HomePage extends StatelessWidget {
   late double _deviceHeight, _deviceWidth;
@@ -16,7 +17,13 @@ class HomePage extends StatelessWidget {
           height: _deviceHeight,
           width: _deviceWidth,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.08),
-          child: _destinationDropDownWidget(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _pageTitle(),
+              _destinationDropDownWidget(),
+            ],
+          ),
         ),
       ),
     );
@@ -45,22 +52,18 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _destinationDropDownWidget() {
-    List<DropdownMenuItem<String>> _items = [
-      'pluto station',
-      'tun mahathir station',
-    ].map(
-      (e) {
-        return DropdownMenuItem(
-          child: Text(e),
-          value: e,
-        );
-      },
-    ).toList();
-    return Container(
-      child: DropdownButton(
-        onChanged: (_) {},
-        items: _items,
-      ),
+    return CustomDropDownButtonClass(
+      value: const [
+        'pluto station',
+        'tun mahathir station',
+      ],
+      width: _deviceWidth,
     );
   }
+ 
+
+ 
+
+
+
 }
